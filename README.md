@@ -13,19 +13,32 @@
 </ul>
 
 <!--Features-->
-<h2>🛠️ Features</h2>
-<ul>
-  <li>📋 Choose the Category of the Quiz</li>
-  <li>🔢 Input the number of questions that you want to do</li>
-  <li>✏️ Create your own Question</li>
-  <li>🏆 Display the Score</li>
-  <li>❌ Display the wrong answers</li>
-  <li>✅ Display the right answers</li>
-  <li>💾 Store Question into MySQL Database</li>
-  <li>✔️ Validate input</li>
-</ul>
+# Quizzasac
 
-<h2> For Preference </h2>
+Welcome to the Quizzasac project! This repository contains a collection of quizzes designed to test your knowledge on various topics. 
+
+## Table of Contents
+
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+
+- A variety of quizzes covering different subjects.
+- User-friendly interface for taking quizzes.
+- Score tracking and performance analysis.
+- Option to create and share your own quizzes.
+
+## Installation
+
+To get started with Quizzasac, follow these steps:
+
+1. Download the repository:
+   ```bash
+   git clone https://github.com/yourusername/quizzasac.git
 
 
 
