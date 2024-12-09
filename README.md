@@ -3,7 +3,7 @@
 
 <!--Introduction-->
 <h2>Introduction</h2>
-
+Quizzasac is a sea of knowledge for different subjects. It is made on Java swing and MYSQL Workbench mainly.
 
 <!--Technologies/Frameworks-->
 <h2>Technologies Frameworks</h2>
@@ -21,9 +21,6 @@ Welcome to the Quizzasac project! This repository contains a collection of quizz
 
 - [Features](#features)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
