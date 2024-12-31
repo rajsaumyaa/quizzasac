@@ -37,6 +37,12 @@ To get started with Quizzasac, follow these steps:
    ```bash
    git clone https://github.com/yourusername/quizzasac.git
 
+## Demo
+<p align="center">
+  <img src="https://github.com/curadProgrammer/Java-Swing-MySQL-Quiz-Game/blob/main/quiz_gmae.gif" alt="Quiz Game Example">
+</p>
+
+
 
 
 
