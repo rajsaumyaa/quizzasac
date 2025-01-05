@@ -1,0 +1,167 @@
+Project Documentation
+Quizzasac is a Java-based quiz application that leverages Swing for its graphical user interface and MySQL for database management. It offers a platform for users to test their knowledge across various subjects through interactive quizzes.
+
+ Table of Contents
+
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Database Schema](#database-schema)
+- [Contributing](#contributing)
+- [License](#license)
+
+ Features
+
+- Diverse Subject Quizzes: Access a wide range of quizzes on different topics.
+- User-Friendly Interface: Engage with an intuitive GUI built using Java Swing.
+- Score Tracking: Monitor your performance with real-time score updates.
+- Custom Quiz Creation: Create and share your own quizzes with others.
+
+ Technologies Used
+
+- Java Development Kit (JDK) 18+: Core programming language.
+- Java Swing: For building the graphical user interface.
+- MySQL Workbench: Database design and management.
+
+ Installation
+
+1. Clone the Repository:
+   ```bash
+   git clone https://github.com/rajsaumyaa/quizzasac.git
+   ```
+
+2. **Set Up the Database**:
+   - Install MySQL Workbench.
+   - Create a new database named `quizzasac_gui_db`.
+   - Execute the provided SQL script (`quizzasac.sql`) to set up the necessary tables and data.
+
+3. Configure Database Connection:
+   - Navigate to the `JDBC.java` file located in the `src/database` directory.
+   - Update the following constants with your MySQL credentials:
+     ```java
+     private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/quizzasac_gui_db";
+     private static final String DB_USERNAME = "your_username";
+     private static final String DB_PASSWORD = "your_password";
+     ```
+
+4. Compile and Run the Application:
+   - Use an Integrated Development Environment (IDE) like IntelliJ IDEA or Eclipse.
+   - Import the project.
+   - Build and execute the `Main.java` file located in the `src` directory.
+
+ Usage
+
+- Taking a Quiz:
+  - Launch the application.
+  - Select a subject from the available options.
+  - Answer the questions presented.
+  - Submit your answers to receive your score.
+
+- Creating a New Quiz:
+  - Access the 'Create Quiz' section.
+  - Enter the quiz title and select the subject category.
+  - Add questions along with multiple-choice answers, specifying the correct one.
+  - Save the quiz to make it available for others.
+
+ Database Schema
+
+The application uses a relational database with the following primary tables:
+
+- CATEGORY:
+  - `category_id` (Primary Key)
+  - `category_name`
+
+- QUESTION:
+  - `question_id` (Primary Key)
+  - `category_id` (Foreign Key referencing `CATEGORY`)
+  - `question_text`
+
+- ANSWER:
+  - `answer_id` (Primary Key)
+  - `question_id` (Foreign Key referencing `QUESTION`)
+  - `answer_text`
+  - `is_correct` (Boolean indicating if the answer is correct)
+
+Ensure that foreign key constraints are appropriately set to maintain referential integrity.
+
+ Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-branch-name
+   ```
+3. Make your changes.
+4. Commit the changes:
+   ```bash
+   git commit -m 'Add new feature'
+   ```
+5. Push to the branch:
+   ```bash
+   git push origin feature-branch-name
+   ```
+6. Submit a pull request detailing your changes.
+
+ Some potential future enhancements for the Quizzasac project:-
+
+ 1. User Authentication and Profiles
+   - Add user registration and login functionality.
+   - Enable user profiles to track individual progress, scores, and quiz history.
+
+ 2. Dynamic Question Generation
+   - Implement AI/ML to dynamically generate questions based on user performance or topic difficulty.
+   - Include adaptive quizzes that adjust the difficulty level based on real-time user responses.
+
+ 3. Leaderboards and Gamification
+   - Introduce leaderboards to encourage competition among users.
+   - Add achievements, badges, and rewards for milestones like high scores or consistent participation.
+
+ 4. Enhanced Quiz Features
+   - Add a timer for each question or the entire quiz for more challenging gameplay.
+   - Include hints and explanations for answers to improve the learning experience.
+
+ 5. Multiplayer Quizzes
+   - Enable real-time multiplayer quiz sessions where users can compete against each other.
+   - Implement chat and collaboration features during quizzes.
+
+ 6. Question Bank Expansion
+   - Allow administrators to import large datasets of questions.
+   - Implement tagging and categorization for better organization and retrieval of questions.
+
+ 7. Data Analytics
+   - Provide detailed analytics to users, such as strengths and weaknesses in specific topics.
+   - Allow administrators to view quiz statistics, such as average scores, question difficulty levels, and participation trends.
+
+ 8. Localization and Multilingual Support
+   - Translate the application into multiple languages.
+   - Support quizzes in various languages for a broader audience.
+
+ 9. Enhanced Security
+   - Use secure authentication methods such as OAuth2 or JWT for user login.
+   - Encrypt sensitive user data in the database.
+
+ 10. Offline Mode
+   - Enable users to download quizzes and play them offline, with results synchronized when back online.
+
+ 11. Customizable Themes
+   - Add theme options or a dark mode for better usability.
+   - Allow users to customize their quiz interface.
+
+ 12. Feedback Mechanism
+   - Allow users to report incorrect questions or answers.
+   - Provide a way for users to suggest new questions or features.
+
+13. Admin Panel
+   - Develop a dedicated admin interface for managing users, questions, and categories.
+   - Include the ability to review user feedback and address flagged questions.
+
+These enhancements can significantly increase the application's usability, engagement, and appeal to a broader audience.
+
+License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/rajsaumyaa/quizzasac/blob/master/LICENSE) file for more information.
+
+For any questions or issues, please open an issue in this repository. 
