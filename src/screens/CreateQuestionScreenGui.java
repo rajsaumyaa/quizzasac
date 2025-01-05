@@ -32,8 +32,7 @@ public class CreateQuestionScreenGui extends JFrame {
         buttonGroup = new ButtonGroup();
 
         addGuiComponents();
-
-    }
+     }
 
     private void addGuiComponents(){
         JLabel titleLabel = new JLabel("Create your own question");
