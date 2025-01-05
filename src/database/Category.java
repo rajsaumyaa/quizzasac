@@ -21,4 +21,5 @@ public class Category extends Question {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
     }
+
 }
