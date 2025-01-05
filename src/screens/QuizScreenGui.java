@@ -41,7 +41,7 @@ public class QuizScreenGui extends JFrame implements ActionListener{
         answerButtons = new JButton[4];
         this.category = category;
 
-        // load the questions based of category;
+        // load the questions based of category
         questions = JDBC.getQuestions(category);
 
         // adjust number of questions to choose the min between the user's input and the total number of
