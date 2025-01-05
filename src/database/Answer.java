@@ -28,4 +28,5 @@ public class Answer {
         this.answerText = answerText;
         this.isCorrect = isCorrect;
     }
+
 }
