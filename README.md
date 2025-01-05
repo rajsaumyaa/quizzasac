@@ -1,5 +1,5 @@
 <!--Project Name-->
-<h1>Quiz Game - Java, Swing, MySQL</h1>
+<h1>Quizzasac - Java, Swing, MySQL</h1>
 
 <!--Introduction-->
 <h2>Introduction</h2>
