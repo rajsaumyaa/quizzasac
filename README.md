@@ -42,6 +42,12 @@ To get started with Quizzasac, follow these steps:
   <img src="https://github.com/curadProgrammer/Java-Swing-MySQL-Quiz-Game/blob/main/quiz_gmae.gif" alt="Quiz Game Example">
 </p>
 
+## Team Members
+1. Saumya Raj (Leader)
+2. Sunny Singh
+3. Navneet Mishra
+4. Uday Chauhan
+
 
 
 
