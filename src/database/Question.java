@@ -50,4 +50,5 @@ public class Question {
         this.categoryId = categoryId;
         this.questionText = questionText;
     }
+
 }
