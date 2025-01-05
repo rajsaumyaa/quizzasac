@@ -134,7 +134,6 @@ public class TitleScreenGui extends JFrame {
         });
         add(createAQuestionButton);
 
-
     }
     private boolean validateInput(){
         if(numOfQuestionsTextField.getText().replaceAll(" "," ").length() <=0)
