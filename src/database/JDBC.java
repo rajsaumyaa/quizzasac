@@ -179,7 +179,7 @@ public class JDBC {
         return null;
     }
 
-    // answer methods
+    
     public static ArrayList<Answer> getAnswers(Question question){
         ArrayList<Answer> answers = new ArrayList<>();
         try{
