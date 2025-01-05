@@ -9,12 +9,7 @@ public class JDBC {
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "Samvi@sql54";
 
-    /*
-        question - the question to be inserted
-        category - the category of the question to be inserted if not already in the database
-        answers - the answers to be inserted
-        correctIndex - determines which of the answers is the correct answer
-     */
+    
     public static boolean saveQuestionCategoryAndAnswersToDatabase(String question, String category,
                                                                    String[] answers, int correctIndex){
         try{
