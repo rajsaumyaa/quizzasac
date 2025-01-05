@@ -1,6 +1,8 @@
 package screens;
 
 import constants.CommonConstants;
+import database.Category;
+import database.JDBC;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,10 +49,9 @@ public class TitleScreenGui extends JFrame {
         add(chooseCategoryLabel);
 
 
-        String[] categories = new String[] {"Math", "Programming","History"};
-
-
-        JComboBox categoriesMenu = new JComboBox(categories);
+        String[] categories = new String[] {"Math", "Java","History","Geography"};
+        ArrayList<String> categoryList = JDBC.getCategories();
+        categoriesMenu = new JComboBox(categoryList.toArray());
         categoriesMenu.setBounds(20,120,337,45);
         categoriesMenu.setForeground(CommonConstants.DARK_BLUE);
         add(categoriesMenu);
@@ -74,6 +75,27 @@ public class TitleScreenGui extends JFrame {
         startButton.setBounds(65,290,262,45);
         startButton.setBackground(CommonConstants.BRIGHT_YELLOW);
         startButton.setForeground(CommonConstants.LIGHT_BLUE);
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (validateInput()){
+
+                    Category category = JDBC.getCategory(categoriesMenu.getSelectedItem().toString());
+
+                    if(category == null)
+                        return;
+
+                    int numofQuestions = Integer.parseInt(numOfQuestionsTextField.getText());
+
+                    QuizScreenGui quizScreenGui = new QuizScreenGui(category, numofQuestions);
+                    quizScreenGui.setLocationRelativeTo(TitleScreenGui.this);
+
+                    TitleScreenGui.this.dispose();
+
+                    quizScreenGui.setVisible(true);
+                }
+            }
+        });
         add(startButton);
 
 
@@ -82,6 +104,13 @@ public class TitleScreenGui extends JFrame {
         exitButton.setBounds(65,350,262,45);
         exitButton.setBackground(CommonConstants.BRIGHT_YELLOW);
         exitButton.setForeground(CommonConstants.LIGHT_BLUE);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                TitleScreenGui.this.dispose();
+            }
+        });
         add(exitButton);
 
         JButton createAQuestionButton = new JButton("Create a Question");
@@ -89,6 +118,31 @@ public class TitleScreenGui extends JFrame {
         createAQuestionButton.setBounds(65,420,262,45);
         createAQuestionButton.setBackground(CommonConstants.BRIGHT_YELLOW);
         createAQuestionButton.setForeground(CommonConstants.LIGHT_BLUE);
+        createAQuestionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CreateQuestionScreenGui createQuestionScreenGui = new CreateQuestionScreenGui();
+                createQuestionScreenGui.setLocationRelativeTo(TitleScreenGui.this);
+
+
+                // dispose of this title screen
+                TitleScreenGui.this.dispose();
+
+                //display create a question screen gui
+                createQuestionScreenGui.setVisible(true);
+            }
+        });
         add(createAQuestionButton);
+
+
+    }
+    private boolean validateInput(){
+        if(numOfQuestionsTextField.getText().replaceAll(" "," ").length() <=0)
+            return false;
+
+        if (categoriesMenu.getSelectedItem() == null)
+            return false;
+
+        return true;
     }
 }

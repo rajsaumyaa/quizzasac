@@ -1,5 +1,7 @@
+import database.Category;
 import screens.CreateQuestionScreenGui;
 import screens.TitleScreenGui;
+import screens.QuizScreenGui;
 
 import javax.swing.*;
 
@@ -9,9 +11,12 @@ public class App {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                //new TitleScreenGui().setVisible(true);
+                new TitleScreenGui().setVisible(true);
 
-                new CreateQuestionScreenGui().setVisible(true);
+
+
+
+
             }
         });
     }

@@ -17,6 +17,7 @@ public class CreateQuestionScreenGui extends JFrame {
     private JTextField[] answerTextFields;
     private ButtonGroup buttonGroup;
     private JRadioButton[] answerRadioButtons;
+
     public CreateQuestionScreenGui(){
         super("Create a Question");
         setSize(851,565);
@@ -48,7 +49,7 @@ public class CreateQuestionScreenGui extends JFrame {
         add(questionLabel);
 
 
-        JTextArea questionTextArea = new JTextArea();
+        questionTextArea = new JTextArea();
         questionTextArea.setFont(new Font("Arial",Font.BOLD,16));
         questionTextArea.setBounds(50,90,310,110);
         questionTextArea.setForeground(CommonConstants.DARK_BLUE);
@@ -69,6 +70,8 @@ public class CreateQuestionScreenGui extends JFrame {
         add(categoryTextField);
 
         addAnswerComponents();
+
+
         JButton submitButton = new JButton("Submit");
         submitButton.setFont(new Font("Arial",Font.BOLD,16));
         submitButton.setBounds(300,450,262,45);
@@ -86,13 +89,17 @@ public class CreateQuestionScreenGui extends JFrame {
                         answers[i] = answerTextFields[i].getText();
                         if (answerRadioButtons[i].isSelected()) {
                             correctIndex = i;
-
                         }
                     }
+
+                    //update database
                     if (JDBC.saveQuestionCategoryAndAnswersToDatabase(question, category,
                             answers, correctIndex)) {
+
+                        //update successful
                         JOptionPane.showMessageDialog(CreateQuestionScreenGui.this,
                                 "Successfully Added Question");
+                        //reset fields
                         resetFields();
                     } else {
                         JOptionPane.showMessageDialog(CreateQuestionScreenGui.this,
@@ -150,17 +157,46 @@ public class CreateQuestionScreenGui extends JFrame {
         }
         answerRadioButtons[0].setSelected(true);
     }
-    private boolean validateInput(){
-        if (questionTextArea.getText().replaceAll("  ", " ").length()<=0) return false;
-
-        if (categoryTextField.getText().replaceAll("  "," ").length() <=0)return false;
-
-        for (int i=0; i< answerTextFields.length; i++){
-            if (answerTextFields[i].getText().replaceAll(" "," ").length()<=0)
-                return false;
+    private boolean validateInput() {
+        // Check if questionTextArea is null or has no text
+        if (questionTextArea == null || questionTextArea.getText().trim().isEmpty()) {
+            return false;
         }
+
+        // Check if categoryTextField is null or has no text
+        if (categoryTextField == null || categoryTextField.getText().trim().isEmpty()) {
+            return false;
+        }
+
+        // Check if answerTextFields array is null or contains any empty answers
+        if (answerTextFields == null) {
+            return false;  // Or handle the case where the array is not initialized
+        }
+
+        for (int i = 0; i < answerTextFields.length; i++) {
+            // Ensure that each text field is not null before calling getText()
+            if (answerTextFields[i] == null || answerTextFields[i].getText().trim().isEmpty()) {
+                return false;
+            }
+        }
+
+        // Ensure at least one radio button is selected
+        boolean isRadioSelected = false;
+        for (int i = 0; i < answerRadioButtons.length; i++) {
+            if (answerRadioButtons[i].isSelected()) {
+                isRadioSelected = true;
+                break;
+            }
+        }
+
+        if (!isRadioSelected) {
+            return false; // No radio button selected
+        }
+
         return true;
     }
+
+
 
     private void resetFields(){
         questionTextArea.setText("");
